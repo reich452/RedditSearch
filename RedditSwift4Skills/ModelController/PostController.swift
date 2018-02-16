@@ -30,10 +30,10 @@ class PostController {
                 guard let data = data else { throw NSError() }
                 
                 let postDictionaries = try JSONDecoder().decode(JsonDictionary.self, from: data).data.children
-                let post = postDictionaries.flatMap{$0.data}
+                let posts = postDictionaries.flatMap{$0.data}
                 
-                self.posts = post
-                completion(post, nil)
+                self.posts = posts
+                completion(posts, nil)
                 
             } catch let error {
                 print("Error fethcing post \(error.localizedDescription) \(error) \(#function)")
@@ -43,7 +43,8 @@ class PostController {
     }
     
     func fetchPostImage(post: Post, completion: @escaping (UIImage?, PostError?) -> Void) {
-        guard let imageUrl = post.thumbnail else { return }
+        guard let postThumbnail = post.thumbnail,
+            let imageUrl = URL(string: postThumbnail) else { return }
         
         URLSession.shared.dataTask(with: imageUrl) { (data, _, error) in
             

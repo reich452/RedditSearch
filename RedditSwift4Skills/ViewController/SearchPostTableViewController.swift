@@ -21,11 +21,6 @@ class SearchPostTableViewController: UITableViewController, UISearchBarDelegate 
         
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        self.tableView.reloadData()
-    }
-    
     // MARK: - Delegates
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
@@ -37,6 +32,7 @@ class SearchPostTableViewController: UITableViewController, UISearchBarDelegate 
             DispatchQueue.main.async { [weak self] in
                 UIApplication.shared.isNetworkActivityIndicatorVisible = true
                 self?.tableView.reloadData()
+                searchBar.text = "" 
                 UIApplication.shared.isNetworkActivityIndicatorVisible = false
             }
         }
@@ -58,7 +54,13 @@ class SearchPostTableViewController: UITableViewController, UISearchBarDelegate 
             DispatchQueue.main.async {
                 cell.post = post
                 if let currentIndexPath = self.tableView.indexPath(for: cell), currentIndexPath == indexPath {
-                    cell.thumbnail = newImage
+                    
+                    if cell.postImageView.image == nil {
+                       cell.postImageView.image = #imageLiteral(resourceName: "redditDefaultImage")
+                    } else {
+                        cell.postImageView.image = newImage
+                        cell.thumbnail = newImage
+                    }
                 } else {
                     return 
                 }
@@ -82,9 +84,9 @@ extension SearchPostTableViewController: UITableViewDataSourcePrefetching {
             let post = PostController.shared.posts[indexPath.row]
             guard let postThumbnail = post.thumbnail,
                 let postUrl = URL(string: postThumbnail) else { return }
-            
+
             URLSession.shared.dataTask(with: postUrl)
-            print("Prefetching \(post.title)")
+            print("Prefetching \(post.title ?? "no prefetch")")
         }
     }
 }

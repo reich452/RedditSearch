@@ -22,11 +22,21 @@ class SearchPostTableViewCell: UITableViewCell {
         }
     }
     
+    var thumbnail: UIImage? {
+        didSet {
+            updateViews()
+        }
+    }
+    
     func updateViews() {
         guard let post = post else { return }
         titleLabel.text = post.title
         authorLabel.text = post.author
-        upVoteLabel.text = "\(post.upVotes)"
+        upVoteLabel.text = "\(post.upVotes ?? 0)"
+        if let thumbnail = thumbnail {
+            postImageView.image = thumbnail
+        } else {
+            postImageView.image = #imageLiteral(resourceName: "redditDefaultImage")
+        }
     }
-
 }

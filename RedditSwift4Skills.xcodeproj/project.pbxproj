@@ -16,6 +16,7 @@
 		012500BA20367C6100221023 /* PostError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 012500B920367C6100221023 /* PostError.swift */; };
 		0172EFD020368105002245CC /* SearchPostTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0172EFCF20368105002245CC /* SearchPostTableViewController.swift */; };
 		0172EFD320368225002245CC /* SearchPostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0172EFD220368225002245CC /* SearchPostTableViewCell.swift */; };
+		0172EFD620369BFA002245CC /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0172EFD520369BFA002245CC /* Theme.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		012500B920367C6100221023 /* PostError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostError.swift; sourceTree = "<group>"; };
 		0172EFCF20368105002245CC /* SearchPostTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPostTableViewController.swift; sourceTree = "<group>"; };
 		0172EFD220368225002245CC /* SearchPostTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPostTableViewCell.swift; sourceTree = "<group>"; };
+		0172EFD520369BFA002245CC /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,6 +122,7 @@
 			isa = PBXGroup;
 			children = (
 				012500B920367C6100221023 /* PostError.swift */,
+				0172EFD420369BDF002245CC /* Theme */,
 			);
 			path = HelperFiles;
 			sourceTree = "<group>";
@@ -130,6 +133,14 @@
 				0172EFD220368225002245CC /* SearchPostTableViewCell.swift */,
 			);
 			path = Cells;
+			sourceTree = "<group>";
+		};
+		0172EFD420369BDF002245CC /* Theme */ = {
+			isa = PBXGroup;
+			children = (
+				0172EFD520369BFA002245CC /* Theme.swift */,
+			);
+			path = Theme;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -210,6 +221,7 @@
 				012500BA20367C6100221023 /* PostError.swift in Sources */,
 				0172EFD020368105002245CC /* SearchPostTableViewController.swift in Sources */,
 				012500B720367B5A00221023 /* PostController.swift in Sources */,
+				0172EFD620369BFA002245CC /* Theme.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

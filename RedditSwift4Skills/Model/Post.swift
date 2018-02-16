@@ -27,10 +27,10 @@ struct Post: Decodable {
     
     // MARK: - Properties
     
-    let title: String
-    let upVotes: Int
-    let author: String
-    let thumbnail: URL?
+    let title: String?
+    let upVotes: Int?
+    let author: String?
+    let thumbnail: String?
     
     // MARK: - Private
     

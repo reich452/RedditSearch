@@ -15,6 +15,7 @@
 		012500B720367B5A00221023 /* PostController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 012500B620367B5A00221023 /* PostController.swift */; };
 		012500BA20367C6100221023 /* PostError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 012500B920367C6100221023 /* PostError.swift */; };
 		0172EFD020368105002245CC /* SearchPostTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0172EFCF20368105002245CC /* SearchPostTableViewController.swift */; };
+		0172EFD320368225002245CC /* SearchPostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0172EFD220368225002245CC /* SearchPostTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		012500B620367B5A00221023 /* PostController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostController.swift; sourceTree = "<group>"; };
 		012500B920367C6100221023 /* PostError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostError.swift; sourceTree = "<group>"; };
 		0172EFCF20368105002245CC /* SearchPostTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPostTableViewController.swift; sourceTree = "<group>"; };
+		0172EFD220368225002245CC /* SearchPostTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchPostTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +101,7 @@
 			children = (
 				012500A120366C4900221023 /* Main.storyboard */,
 				012500A620366C4900221023 /* LaunchScreen.storyboard */,
+				0172EFD1203681CF002245CC /* New Group */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -119,6 +122,14 @@
 				012500B920367C6100221023 /* PostError.swift */,
 			);
 			path = HelperFiles;
+			sourceTree = "<group>";
+		};
+		0172EFD1203681CF002245CC /* New Group */ = {
+			isa = PBXGroup;
+			children = (
+				0172EFD220368225002245CC /* SearchPostTableViewCell.swift */,
+			);
+			path = "New Group";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -194,6 +205,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0125009E20366C4900221023 /* AppDelegate.swift in Sources */,
+				0172EFD320368225002245CC /* SearchPostTableViewCell.swift in Sources */,
 				012500B52036729E00221023 /* Post.swift in Sources */,
 				012500BA20367C6100221023 /* PostError.swift in Sources */,
 				0172EFD020368105002245CC /* SearchPostTableViewController.swift in Sources */,

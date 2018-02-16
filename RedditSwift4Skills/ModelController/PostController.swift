@@ -20,7 +20,7 @@ class PostController {
     func fetchPost(with searchTerm: String, completion: @escaping PostCompletionHandeler) {
         
         guard let url = baseURL else { completion(nil,.invalidUrl); return }
-        let requetUrl = url.appendingPathComponent(searchTerm)
+        let requetUrl = url.appendingPathComponent(searchTerm).appendingPathExtension("json")
         
         URLSession.shared.dataTask(with: requetUrl) { (data, _, error) in
             
@@ -29,7 +29,7 @@ class PostController {
                 if let error = error { throw error }
                 guard let data = data else { throw NSError() }
                 
-                let postDictionaries = try JSONDecoder().decode(JsonDictionary.self, from: data).dataDictionary.children
+                let postDictionaries = try JSONDecoder().decode(JsonDictionary.self, from: data).data.children
                 let post = postDictionaries.flatMap{$0.data}
                 
                 self.posts = post
@@ -43,8 +43,9 @@ class PostController {
     }
     
     func fetchPostImage(post: Post, completion: @escaping (UIImage?, PostError?) -> Void) {
+        guard let imageUrl = post.thumbnail else { return }
         
-        URLSession.shared.dataTask(with: post.thumbnail) { (data, _, error) in
+        URLSession.shared.dataTask(with: imageUrl) { (data, _, error) in
             
             do {
                 if let error = error { throw error }

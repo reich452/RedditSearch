@@ -100,7 +100,7 @@
                             </constraints>
                         </view>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="105" id="WJT-Mh-HDp" customClass="SearchPostTableViewCell" customModule="RedditSwift4Skills" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="postCell" rowHeight="105" id="WJT-Mh-HDp" customClass="SearchPostTableViewCell" customModule="RedditSwift4Skills" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="91" width="375" height="105"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="WJT-Mh-HDp" id="eC2-JN-RHB">
@@ -177,6 +177,9 @@
                         </connections>
                     </tableView>
                     <tabBarItem key="tabBarItem" title="Item" id="z5f-zW-l37"/>
+                    <connections>
+                        <outlet property="searchBar" destination="0Ow-g3-aEi" id="rI2-Ba-WgN"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aLE-Hp-AVB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

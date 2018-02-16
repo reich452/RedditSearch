@@ -15,5 +15,18 @@ class SearchPostTableViewCell: UITableViewCell {
     @IBOutlet weak var postImageView: UIImageView!
     @IBOutlet weak var authorLabel: UILabel!
     
+    // MARK: - Properties
+    var post: Post? {
+        didSet {
+            updateViews()
+        }
+    }
+    
+    func updateViews() {
+        guard let post = post else { return }
+        titleLabel.text = post.title
+        authorLabel.text = post.author
+        upVoteLabel.text = "\(post.upVotes)"
+    }
 
 }

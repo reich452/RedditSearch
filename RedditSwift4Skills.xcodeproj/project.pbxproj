@@ -101,7 +101,7 @@
 			children = (
 				012500A120366C4900221023 /* Main.storyboard */,
 				012500A620366C4900221023 /* LaunchScreen.storyboard */,
-				0172EFD1203681CF002245CC /* New Group */,
+				0172EFD1203681CF002245CC /* Cells */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -124,12 +124,12 @@
 			path = HelperFiles;
 			sourceTree = "<group>";
 		};
-		0172EFD1203681CF002245CC /* New Group */ = {
+		0172EFD1203681CF002245CC /* Cells */ = {
 			isa = PBXGroup;
 			children = (
 				0172EFD220368225002245CC /* SearchPostTableViewCell.swift */,
 			);
-			path = "New Group";
+			path = Cells;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

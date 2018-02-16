@@ -18,6 +18,7 @@
                 <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="XaF-Z1-75x" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="nGT-ve-RRD">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
@@ -77,7 +78,7 @@
         <!--Item-->
         <scene sceneID="iaG-Uw-he7">
             <objects>
-                <tableViewController id="x9Y-89-zyk" sceneMemberID="viewController">
+                <tableViewController id="x9Y-89-zyk" customClass="SearchPostTableViewController" customModule="RedditSwift4Skills" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="XTt-yd-Zag">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -99,7 +100,7 @@
                             </constraints>
                         </view>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="105" id="WJT-Mh-HDp">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="105" id="WJT-Mh-HDp" customClass="SearchPostTableViewCell" customModule="RedditSwift4Skills" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="91" width="375" height="105"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="WJT-Mh-HDp" id="eC2-JN-RHB">
@@ -162,6 +163,12 @@
                                         <constraint firstItem="o0d-c3-35b" firstAttribute="centerX" secondItem="eC2-JN-RHB" secondAttribute="centerX" id="bHi-wh-9Qe"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="authorLabel" destination="DnR-wd-9Ff" id="sfn-E9-oOH"/>
+                                    <outlet property="postImageView" destination="uXC-D6-gFG" id="W9Y-xM-jqZ"/>
+                                    <outlet property="titleLabel" destination="Uhe-zy-aoI" id="SOa-p5-Yv5"/>
+                                    <outlet property="upVoteLabel" destination="K9u-bx-TiH" id="Lgh-yI-ro8"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>

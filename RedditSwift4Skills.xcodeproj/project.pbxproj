@@ -11,6 +11,8 @@
 		012500A320366C4900221023 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 012500A120366C4900221023 /* Main.storyboard */; };
 		012500A520366C4900221023 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 012500A420366C4900221023 /* Assets.xcassets */; };
 		012500A820366C4900221023 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 012500A620366C4900221023 /* LaunchScreen.storyboard */; };
+		012500B52036729E00221023 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 012500B42036729E00221023 /* Post.swift */; };
+		012500B720367B5A00221023 /* PostController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 012500B620367B5A00221023 /* PostController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,6 +22,8 @@
 		012500A420366C4900221023 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		012500A720366C4900221023 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		012500A920366C4900221023 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		012500B42036729E00221023 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
+		012500B620367B5A00221023 /* PostController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +68,7 @@
 		012500AF20366C5700221023 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				012500B42036729E00221023 /* Post.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -71,6 +76,7 @@
 		012500B020366C5C00221023 /* Model Controller */ = {
 			isa = PBXGroup;
 			children = (
+				012500B620367B5A00221023 /* PostController.swift */,
 			);
 			path = "Model Controller";
 			sourceTree = "<group>";
@@ -174,6 +180,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				0125009E20366C4900221023 /* AppDelegate.swift in Sources */,
+				012500B52036729E00221023 /* Post.swift in Sources */,
+				012500B720367B5A00221023 /* PostController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

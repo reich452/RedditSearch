@@ -8,12 +8,31 @@
 
 import UIKit
 
-class SearchPostTableViewController: UITableViewController {
+class SearchPostTableViewController: UITableViewController, UISearchBarDelegate {
 
+    @IBOutlet weak var searchBar: UISearchBar!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-
+        searchBar.delegate = self
+        tableView.estimatedRowHeight = UITableViewAutomaticDimension
+        tableView.estimatedRowHeight = 200
+    }
+    
+    // MARK: - Delegates
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        guard let searchText = searchBar.text else { return }
+        searchBar.resignFirstResponder()
+        
+        PostController.shared.fetchPost(with: searchText) { (posts, error) in
+            
+            DispatchQueue.main.async { [weak self] in
+                UIApplication.shared.isNetworkActivityIndicatorVisible = true
+                self?.tableView.reloadData()
+                UIApplication.shared.isNetworkActivityIndicatorVisible = false
+            }
+        }
     }
     
     // MARK: - Table view data source
@@ -24,8 +43,15 @@ class SearchPostTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "postCell", for: indexPath)
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "postCell", for: indexPath) as? SearchPostTableViewCell else { return UITableViewCell() }
         
+        let post = PostController.shared.posts[indexPath.row]
+        cell.post = post
+        PostController.shared.fetchPostImage(post: post) { (newImage, error) in
+            DispatchQueue.main.async {
+                cell.imageView?.image = newImage
+            }
+        }
         return cell
     }
     

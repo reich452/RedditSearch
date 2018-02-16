@@ -15,8 +15,10 @@ class SearchPostTableViewController: UITableViewController, UISearchBarDelegate 
     override func viewDidLoad() {
         super.viewDidLoad()
         searchBar.delegate = self
+        tableView.prefetchDataSource = self
         tableView.estimatedRowHeight = UITableViewAutomaticDimension
-        tableView.estimatedRowHeight = 200
+        tableView.estimatedRowHeight = 300
+        
     }
     
     // MARK: - Delegates
@@ -55,12 +57,25 @@ class SearchPostTableViewController: UITableViewController, UISearchBarDelegate 
         return cell
     }
     
-
-    
     // MARK: - Navigation
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
     }
-
 }
+
+extension SearchPostTableViewController: UITableViewDataSourcePrefetching {
+    
+    func tableView(_ tableView: UITableView, prefetchRowsAt indexPaths: [IndexPath]) {
+        for indexPath in indexPaths {
+            let post = PostController.shared.posts[indexPath.row]
+            guard let postImageUrl = post.thumbnail else { return }
+            
+            URLSession.shared.dataTask(with: postImageUrl)
+            print("Prefetching \(post.title)")
+        }
+    }
+}
+
+
+

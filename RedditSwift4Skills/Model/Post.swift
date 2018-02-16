@@ -10,11 +10,8 @@ import Foundation
 
 struct JsonDictionary: Decodable {
     
-    let dataDictionary: DataDictionary
-    
-    private enum CodingKeys: String, CodingKey {
-        case dataDictionary = "data"
-    }
+    let data: DataDictionary
+
     
     struct DataDictionary: Decodable {
         let children: [PostDictionary]
@@ -33,7 +30,7 @@ struct Post: Decodable {
     let title: String
     let upVotes: Int
     let author: String
-    let thumbnail: URL
+    let thumbnail: URL?
     
     // MARK: - Private
     

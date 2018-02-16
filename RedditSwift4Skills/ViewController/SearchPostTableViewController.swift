@@ -17,8 +17,13 @@ class SearchPostTableViewController: UITableViewController, UISearchBarDelegate 
         searchBar.delegate = self
         tableView.prefetchDataSource = self
         tableView.estimatedRowHeight = UITableViewAutomaticDimension
-        tableView.estimatedRowHeight = 300
+        tableView.estimatedRowHeight = 140
         
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.tableView.reloadData()
     }
     
     // MARK: - Delegates
@@ -51,9 +56,15 @@ class SearchPostTableViewController: UITableViewController, UISearchBarDelegate 
         cell.post = post
         PostController.shared.fetchPostImage(post: post) { (newImage, error) in
             DispatchQueue.main.async {
-                cell.imageView?.image = newImage
+                cell.post = post
+                if let currentIndexPath = self.tableView.indexPath(for: cell), currentIndexPath == indexPath {
+                    cell.thumbnail = newImage
+                } else {
+                    return 
+                }
             }
         }
+
         return cell
     }
     
@@ -69,9 +80,10 @@ extension SearchPostTableViewController: UITableViewDataSourcePrefetching {
     func tableView(_ tableView: UITableView, prefetchRowsAt indexPaths: [IndexPath]) {
         for indexPath in indexPaths {
             let post = PostController.shared.posts[indexPath.row]
-            guard let postImageUrl = post.thumbnail else { return }
+            guard let postThumbnail = post.thumbnail,
+                let postUrl = URL(string: postThumbnail) else { return }
             
-            URLSession.shared.dataTask(with: postImageUrl)
+            URLSession.shared.dataTask(with: postUrl)
             print("Prefetching \(post.title)")
         }
     }
